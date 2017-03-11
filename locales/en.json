@@ -11,5 +11,10 @@
 	"AsExpected": "As expected",
 	"AboveExpectation": "Above expectation",
 	"How do you score": "How do you score",
-	"class": "class"
+	"class": "class",
+	"Statistics for the class": "Statistics for the class",
+	"Back": "Back",
+	"Total": "Total",
+	"ClassCode": "ClassCode",
+	"Add new class": "Add new class"
 }

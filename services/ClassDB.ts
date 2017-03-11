@@ -89,8 +89,8 @@ export class KoderekDB
         var classList:ClassModel[] = [];
         this.classes.forEach(element => {
            if( 
-                 ( !filter.name || element.className.indexOf(filter.name)==0
-                                || element.classID.indexOf(filter.name)==0 )
+                 ( !filter.name || element.className.toUpperCase().indexOf(filter.name.toUpperCase())==0
+                                || element.classID.toUpperCase().indexOf(filter.name.toUpperCase())==0 )
            )
                classList.push(element); 
         });

@@ -100,7 +100,8 @@ export class KoderekDB
         this.classes.forEach(element => {
            if( 
                  ( !filter.name || element.className.toUpperCase().indexOf(filter.name.toUpperCase())==0
-                                || element.classID.toUpperCase().indexOf(filter.name.toUpperCase())==0 )
+                                || element.classID.toUpperCase().indexOf(filter.name.toUpperCase())==0
+                                || element.classTeacher.toUpperCase().indexOf(filter.name.toUpperCase())==0 )
            )
                classList.push(element); 
         });

@@ -23,11 +23,11 @@ export class ClassService {
     {
         return this.db.getScoreForClass(classID);
     }
-    public SetScore(classID:string ,score:ClassScoreEnum, owner?:string)
+    public SetScore(classID:string ,score:ClassScoreEnum, comment?:string, owner?:string)
     {
         if( this.db.getClassByID(classID) )
         {
-            var classScore = new ClassScoreModel(classID, score, new Date(Date.now()), owner);
+            var classScore = new ClassScoreModel(classID, score, new Date(Date.now()),comment,owner);
             this.db.setScoreForClass(classScore);
         }
     }

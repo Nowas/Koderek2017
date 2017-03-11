@@ -6,6 +6,7 @@ export class ClassScoreModel implements IClassScoreModel
     public classId: string,
     public classScore: ClassScoreEnum,
     public classScoreDate: Date,
+    public classScoreComment:string| undefined,
     public classScoreOwner: string | undefined
     ){}
 }

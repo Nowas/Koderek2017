@@ -1,10 +1,8 @@
 function initStatistics(dataUrl, totalText){
         var chartColors = [
-        "#2C3E50",
-        "#FC4349",
-        "#6DBCDB",
-        "#F7E248",
-        "#D7DADB",
+        "#C9302C",
+        "#EC971F",
+        "#4DCB6D",
         "#FFF"];
 
 

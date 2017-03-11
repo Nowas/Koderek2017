@@ -7,9 +7,9 @@ import { ClassScoreModel } from "./Models/ClassScoreModel";
 
 export class ClassService {
     protected db:KoderekDB;
-    constructor()
+    constructor(db:KoderekDB)
     {
-     this.db = new KoderekDB();
+     this.db = db;
     }
     public GetClass(classID?:string|null): ClassModel | null
     {

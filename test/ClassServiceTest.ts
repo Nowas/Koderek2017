@@ -1,6 +1,7 @@
 import { ClassService } from "../services/ClassService";
 import { ClassFilter } from "../services/Models/ClassFilter";
 import { ClassScoreEnum } from "../services/Models/IClassScoreModel";
+import { KoderekDB } from "../services/ClassDB";
 
 let assert = require('assert');
 let expect = require('chai').expect;
@@ -11,38 +12,38 @@ describe('ClassService tests', function () {
     });
 
     it('get class info test', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClass("id1");
         assert(cl!=null, 'got class');
         done();
     })
 
     it('get no class info test', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClass(null);
         assert(cl==null, 'got class');
         done();
     })
     it('get no class info test for wrong id', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClass("id000");
         assert(cl==null, 'got class');
         done();
     })
     it('get classes with filter test', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClasses(new ClassFilter("name1"));
         assert(cl && cl.length > 0, 'got class');
         done();
     })
     it('get classes with filter test no return', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClasses(new ClassFilter("name11"));
         assert(cl && cl.length == 0, 'got class');
         done();
     })
     it('get classes score', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetScoreForClass("id1");
         assert(cl[0] == 1, 'got score Below');
         assert(cl[1] == 2, 'got score AsExpected');
@@ -50,7 +51,7 @@ describe('ClassService tests', function () {
         done();
     })
     it('get classes score insert', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetScoreForClass("id3");
         assert(cl[0] == 0, 'got score Below');
         assert(cl[1] == 0, 'got score AsExpected');
@@ -65,7 +66,7 @@ describe('ClassService tests', function () {
         done();
     })
     it('add class test', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
         var cl = srv.GetClass("id99");
         assert(!cl , 'got class, but shouldnt');
         srv.AddClass("id99", "name99", new Date("2017.03.09"), new Date("2017.03.10"), "teacher99");
@@ -74,7 +75,7 @@ describe('ClassService tests', function () {
         done();
     })
     it('new class multiple score insert', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
 
         srv.AddClass("id88", "name88", new Date("2017.03.09"), new Date("2017.03.10"), "teacher88");
         
@@ -97,7 +98,7 @@ describe('ClassService tests', function () {
         done();
     })
     it('nonexistent class score get', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
 
         var cl = srv.GetScoreForClass("id88");
         assert(cl[0] == 0, 'got score Below');
@@ -106,7 +107,7 @@ describe('ClassService tests', function () {
         done();
     })
     it('nonexistent class score insert', function(done){
-        var srv = new ClassService();
+        var srv = new ClassService(new KoderekDB());
 
         srv.SetScore("id88", ClassScoreEnum.AsExpected);
 

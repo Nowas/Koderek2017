@@ -74,9 +74,9 @@ module Route {
                 function (req: any, res) {  
                     var stat = new ClassService(db).GetScoreForClass(req.query.id);
                     res.jsonp([
-                        {"category":"BeloveExpected","count":stat[0]},
-                        {"category":"AsExpected","count":stat[1]},
-                        {"category":"AboveExpected","count":stat[2]},
+                        {"category":res.locals.__()("BelowExpectation"),"count":stat[0]},
+                        {"category":res.locals.__()("AsExpected"),"count":stat[1]},
+                        {"category":res.locals.__()("AboveExpectation"),"count":stat[2]},
                     ]);
                 });
 

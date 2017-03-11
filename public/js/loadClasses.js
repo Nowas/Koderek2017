@@ -15,7 +15,7 @@ function loadClasses(url, scoreUrl, btnText, translations) {
                     )
             );
             td.append(
-                a2.addClass('btn btn-info').attr('href', '/statistics?id='+data[i].classID)
+                a2.addClass('btn btn-info').attr('href', '/statistics?classID='+data[i].classID)
                     .append(
                     $('<i>').html('Stats')
                     )

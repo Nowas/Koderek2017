@@ -62,8 +62,17 @@ module Route {
                 });
 
             router.get('/statistics',
+                function (req: any, res) {
+                    res.render('statistics', {
+                        baseUrl: req.baseUrl,
+                        dataUrl: '/stats?id='+req.query.classID
+                    });
+                });
+
+
+            router.get('/stats',
                 function (req: any, res) {  
-                    var stat = new ClassService().GetScoreForClass(req.query.id);
+                    var stat = new ClassService(db).GetScoreForClass(req.query.id);
                     res.jsonp([
                         {"category":"BeloveExpected","count":stat[0]},
                         {"category":"AsExpected","count":stat[1]},

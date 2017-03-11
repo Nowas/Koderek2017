@@ -36,6 +36,7 @@
         </nav>
         <div id="content">
             <h1>{{#__}}Statistics for the class{{/__}}</h1>
+        <a id="back" href="/" class="btn btn-default"><i>{{#__}}Back{{/__}}</i></a>
 
             <div id="doughnutChart" class="chart">
             </div>

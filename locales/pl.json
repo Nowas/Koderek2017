@@ -14,5 +14,8 @@
 	"class": "zajęcia",
 	"ClassCode": "ClassCode",
 	"Filter": "Filter",
-	"Add new class": "Add new class"
+	"Add new class": "Dodaj nowe zajęcia",
+	"Statistics for the class": "Ocena zajęć",
+	"Total": "Łącznie",
+	"Back": "Wstecz"
 }

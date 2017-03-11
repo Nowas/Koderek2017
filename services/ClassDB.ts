@@ -84,6 +84,16 @@ export class KoderekDB
         return [r0,r1,r2];
     }
 
+    getFullScoreForClass(ID:string):any
+    {
+        var classScores:any = [];
+        this.scores.forEach(element => {
+           if( element.classId == ID )
+              classScores.push(element);
+        });
+        return classScores;
+    }
+
     getClassesWithFilter(filter:IClassFilter):ClassModel[]
     {
         var classList:ClassModel[] = [];

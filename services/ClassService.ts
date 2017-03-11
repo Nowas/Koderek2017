@@ -23,6 +23,12 @@ export class ClassService {
     {
         return this.db.getScoreForClass(classID);
     }
+
+    public GetFullScoreForClass(classID:string):any
+    {
+        return this.db.getFullScoreForClass(classID);
+    }
+
     public SetScore(classID:string ,score:ClassScoreEnum, comment?:string, owner?:string)
     {
         if( this.db.getClassByID(classID) )

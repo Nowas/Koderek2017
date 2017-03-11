@@ -40,6 +40,28 @@
 
             <div id="doughnutChart" class="chart">
             </div>
+            <div style="padding-top:450px">
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>{{#__}}Scrore info{{/__}}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table id="tableBody" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        {{#scoreInfos}}
+                        <tr> 
+							<td style="overflow:hidden">{{scoreInfo}}</td>
+						</tr>
+						{{/scoreInfos}}
+                        </tbody>
+                </table>
+            </div>
+            </div>
         </div>
 
 </body>

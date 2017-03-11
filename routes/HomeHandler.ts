@@ -39,7 +39,7 @@ module Route {
                             score = ClassScoreEnum.AsExpected;
                             break;
                     }
-                    res.redirect('/?status=' +new ClassService(db).SetScore(req.body.classID, score));
+                    res.redirect('/?status=' +new ClassService(db).SetScore(req.body.classID, score, req.body.scoreInfo));
                 });
 
             router.post('/classes',
@@ -63,9 +63,17 @@ module Route {
 
             router.get('/statistics',
                 function (req: any, res) {
+                    let scores = new ClassService(db).GetFullScoreForClass(req.query.classID);
+                    let scoresInfo:any[] = [];
+
+                     scores.forEach(el =>{
+                         if(el.classScoreComment)
+                            scoresInfo.push({scoreInfo:el.classScoreComment})
+                     })
                     res.render('statistics', {
                         baseUrl: req.baseUrl,
-                        dataUrl: '/stats?id='+req.query.classID
+                        dataUrl: '/stats?id='+req.query.classID,
+                        scoreInfos: scoresInfo
                     });
                 });
 

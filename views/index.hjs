@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+    <link rel='stylesheet' href='/css/coolRadio.css' />
     <link rel='stylesheet' href='/css/avgrund.css' />
     <link rel='stylesheet' href='/css/nprogress.css' />
     <link rel='stylesheet' href='/css/nowascore.css' />
@@ -19,7 +20,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='/js/nprogress.js'></script>
     <script src='/js/retreiveDataFromServer.js'></script>
-    <script src='/js/collTable.js'></script>
+    <script src='/js/coolTable.js'></script>
     <script src='/js/loadClasses.js'></script>
     <script src="/js/jquery.avgrund.js"></script>
 </head>
@@ -64,11 +65,11 @@
 
 <script>
     $(function () {
-        loadClasses('{{baseClassesUrl}}', '{{#__}}Score{{/__}}', {
-            close: '{{#__}}close{{/__}}',
-            BelowExpectation: '{{#__}}BelowExpectation{{/__}}',
-            AsExpected: '{{#__}}AsExpected{{/__}}',
-            AboveExpectation: '{{#__}}AboveExpectation{{/__}}',
+        loadClasses('{{baseClassesUrl}}', '{{baseScoreUrl}}', '{{#__}}Score{{/__}}', {
+            'close': '{{#__}}close{{/__}}',
+            'BelowExpectation': '{{#__}}BelowExpectation{{/__}}',
+            'AsExpected': '{{#__}}AsExpected{{/__}}',
+            'AboveExpectation': '{{#__}}AboveExpectation{{/__}}',
             'How do you score' : '{{#__}}How do you score{{/__}}',
             'class' : '{{#__}}class{{/__}}'
         });

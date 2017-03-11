@@ -44,7 +44,7 @@
             var self = $(this),
                 body = $('body'),
                 maxWidth = options.width > 640 ? 640 : options.width,
-                maxHeight = options.height > 350 ? 350 : options.height,
+                maxHeight = options.height > 550 ? 550 : options.height,
                 template = typeof options.template === 'function' ? options.template(self) : options.template;
 
             body.addClass('avgrund-ready');

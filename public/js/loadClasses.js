@@ -1,5 +1,5 @@
 
-function loadClasses(url, btnText, translations) {
+function loadClasses(url, scoreUrl, btnText, translations) {
     retreiveDataFromServer(url, function (data) {
         var body = $("#tableBody").find('tbody');
         for (var i = 0, len = data.length; i < len; i++) {
@@ -19,17 +19,29 @@ function loadClasses(url, btnText, translations) {
                 )
             );
             a.avgrund({
-                height: 200,
-                width: 500,
+                height: 400,
                 holderClass: 'custom',
                 showClose: true,
                 showCloseText: translations['close'],
                 onBlurContainer: '.container',
-                template: '<h2>'+translations['How do you score'] +' "'+data[i].className+'" ' + translations['class'] + '</h2>' +
+                template: '<h3>' + translations['How do you score'] + ' "' + data[i].className + '" ' + translations['class'] + '</h3>' +
                 '<div>' +
-                '<a class="btn btn-danger" href="#" data-class-id="1"><i class=""></i> '+translations['BelowExpectation']+'</a>'+
-                '<a class="btn btn-warning" href="#" data-class-id="1"><i class=""></i> '+translations['AsExpected']+'</a>'+
-                '<a class="btn btn-success" href="#" data-class-id="1"><i class=""></i> '+translations['AboveExpectation']+'</a>'+
+                    '<form method="post" action="'+scoreUrl+'">'+
+                        '<input type="hidden" id="classID" name="classID" value="'+data[i].classID+'"/>' +
+                        '<div class="radioDiv">' +
+                            '<input type="radio" name="radioBelow" id="radio1" class="radio radio-danger"/>' +
+                            '<label for="radio1">' + translations['BelowExpectation'] + '</label>' +
+                        '</div>' +
+                        '<div class="radioDiv">' +
+                            '<input type="radio" name="radioAs" id="radio2" class="radio radio-warning"/>' +
+                            '<label for="radio2">' + translations['AsExpected'] + '</label>' +
+                        '</div>' +
+                        '<div class="radioDiv">' +
+                            '<input type="radio" name="radioAbove" id="radio3" class="radio radio-success"/>' +
+                            '<label for="radio3">' + translations['AboveExpectation'] + '</label>' +
+                        '<textarea name="scoreInfo" id="scoreInfo" class="form-control" rows="3"></textarea>'+
+                        '<input type="submit" value="Submit">'+
+                    '</form>'+
                 '</div>'
             });
             body.append(tr);

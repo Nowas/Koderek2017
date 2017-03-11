@@ -26,20 +26,26 @@ module Route {
             router.post('/score',
                 function (req: any, res) {
                     var score: ClassScoreEnum;
-
-                    if (req.body.radioAs)
-                        score = ClassScoreEnum.AsExpected;
-                    else if (req.body.radioBelowe)
-                        score = ClassScoreEnum.BelowExpectation;
-                    else
-                        score = ClassScoreEnum.AboveExpectation;
-
-                    res.jsonp(new ClassService().SetScore(req.body.classID, score));
+                    switch (req.body.radio) {
+                        case 'radioAbove':
+                            score = ClassScoreEnum.AboveExpectation;
+                            break;
+                        case 'radioBelow':
+                            score = ClassScoreEnum.BelowExpectation;
+                            break;
+                        default:
+                            score = ClassScoreEnum.AsExpected;
+                            break;
+                    }
+                    res.redirect('/?valid=' +new ClassService().SetScore(req.body.classID, score));
                 });
 
             router.get('/classes',
                 function (req: any, res) {
-                    res.jsonp(new ClassService().GetClasses(new ClassFilter()));
+                    if(req.query.classname)
+                        res.jsonp(new ClassService().GetClasses(new ClassFilter(req.query.classname)));
+                    else
+                        res.jsonp(new ClassService().GetClasses(new ClassFilter()));
                 });
 
             router.get('/statistics',

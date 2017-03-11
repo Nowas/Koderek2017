@@ -35,6 +35,12 @@
         <div id="content">
             <h1>{{#__}}Class list waiting for your score{{/__}}</h1>
 
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">{{#__}}Class name{{/__}}</label>
+                <input id="filterClassName" type="text" class="form-control" id="classNameFilter" placeholder="{{#__}}Class name{{/__}}">
+            </div>
+
+
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
@@ -70,9 +76,20 @@
             'BelowExpectation': '{{#__}}BelowExpectation{{/__}}',
             'AsExpected': '{{#__}}AsExpected{{/__}}',
             'AboveExpectation': '{{#__}}AboveExpectation{{/__}}',
-            'How do you score' : '{{#__}}How do you score{{/__}}',
-            'class' : '{{#__}}class{{/__}}'
+            'How do you score': '{{#__}}How do you score{{/__}}',
+            'class': '{{#__}}class{{/__}}'
         });
+
+        $("#filterClassName").keyup(function () {
+                loadClasses('{{baseClassesUrl}}?classname=' + this.value, '{{baseScoreUrl}}', '{{#__}}Score{{/__}}', {
+                    'close': '{{#__}}close{{/__}}',
+                    'BelowExpectation': '{{#__}}BelowExpectation{{/__}}',
+                    'AsExpected': '{{#__}}AsExpected{{/__}}',
+                    'AboveExpectation': '{{#__}}AboveExpectation{{/__}}',
+                    'How do you score': '{{#__}}How do you score{{/__}}',
+                    'class': '{{#__}}class{{/__}}'
+                });
+            });
     });
 
 </script>

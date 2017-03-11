@@ -1,5 +1,9 @@
 {
-	"Event journal": "NowaScore",
 	"NowaScore": "NowaScore",
-	"Class list waiting for your score": "Class list waiting for your score"
+	"Class list waiting for your score": "Class list waiting for your score",
+	"Class name": "Class name",
+	"Teacher": "Teacher",
+	"Begin": "Begin",
+	"End": "End",
+	"Score": "Score"
 }

@@ -25,8 +25,11 @@ export class ClassService {
     }
     public SetScore(classID:string ,score:ClassScoreEnum, owner?:string)
     {
-        var classScore = new ClassScoreModel(classID, score, new Date(Date.now()), owner);
-        this.db.setScoreForClass(classScore);
+        if( this.db.getClassByID(classID) )
+        {
+            var classScore = new ClassScoreModel(classID, score, new Date(Date.now()), owner);
+            this.db.setScoreForClass(classScore);
+        }
     }
     AddClass(classID:string,className:string, start:Date, end:Date, teacher:string)
     {

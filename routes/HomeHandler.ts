@@ -4,6 +4,7 @@ import { Router } from "express";
 import { ClassModel } from "../services/Models/ClassModel";
 import { ClassService } from "../services/ClassService";
 import { ClassFilter } from "../services/Models/ClassFilter";
+import { ClassScoreEnum } from "../services/Models/IClassScoreModel";
 var i18n = require('i18n');
 var fs = require('fs');
 
@@ -17,12 +18,27 @@ module Route {
                 function (req: any, res) {
                     res.render('index', {
                         baseUrl: req.baseUrl,
-                        baseClassesUrl: req.baseUrl + '/classes'
+                        baseClassesUrl: req.baseUrl + '/classes',
+                        baseScoreUrl: req.baseUrl + '/score'
                     });
                 });
 
+            router.post('/score',
+                function (req: any, res) {
+                    var score: ClassScoreEnum;
+
+                    if (req.body.radioAs)
+                        score = ClassScoreEnum.AsExpected;
+                    else if (req.body.radioBelowe)
+                        score = ClassScoreEnum.BelowExpectation;
+                    else
+                        score = ClassScoreEnum.AboveExpectation;
+
+                    res.jsonp(new ClassService().SetScore(req.body.classID, score));
+                });
+
             router.get('/classes',
-                function (req: any, res) {  
+                function (req: any, res) {
                     res.jsonp(new ClassService().GetClasses(new ClassFilter()));
                 });
 

@@ -1,30 +1,3 @@
-body {
-	background: #FFF;
-	color: #666;
-	font: 14px/22px 'Open Sans', Arial, sans-serif;
-	text-align: justify;	
-}
-
-html {
-	background: url(http://subtlepatterns.com/patterns/dark_dotted.png) repeat #222;
-}
-
-a {
-	color: #ED5E2F;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-h1 {
-	color: #333;
-	font-family: 'Headland One', Georgia, serif;
-	font-size: 40px;
-	text-align: center;
-	margin: 0 0 25px;
-}
-
 pre, code {
 	font-family: "Consolas", "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 	font-size: 12px;
@@ -38,6 +11,7 @@ pre, code {
 }
 
 .container {
+	height: 500px;	
 	width: 600px;
 	margin: 0 auto;
 	padding: 45px 0 0;

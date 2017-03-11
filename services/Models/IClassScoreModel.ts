@@ -10,5 +10,6 @@ export interface IClassScoreModel
    classId:string;
    classScore:ClassScoreEnum;
    classScoreDate:Date;
+   classScoreComment?:string;
    classScoreOwner?:string;
 }

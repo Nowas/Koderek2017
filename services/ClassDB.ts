@@ -19,23 +19,23 @@ export class KoderekDB
         this.classes.push( new ClassModel("T.4","name2",new Date("2017.03.06"), new Date("2017.03.07"),"teacher1"));
         this.classes.push( new ClassModel("T.5","name1",new Date("2017.03.07"), new Date("2017.03.08"),"teacher1"));
 
-        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user1"));
-        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user2"));
-        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user3"));
-        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user4"));
-        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "user5"));
+        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user1"));
+        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user2"));
+        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user3"));
+        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user4"));
+        this.scores.push( new ClassScoreModel("T.1",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "comment", "user5"));
         
-        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user1"));
-        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user2"));
-        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user3"));
-        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user4"));
-        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "user5"));
+        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user1"));
+        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user2"));
+        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user3"));
+        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user4"));
+        this.scores.push( new ClassScoreModel("T.2",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "comment", "user5"));
         
-        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user1"));
-        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "user2"));
-        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user3"));
-        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "user4"));
-        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "user5"));
+        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user1"));
+        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AsExpected, new Date("2017.03.11"), "comment", "user2"));
+        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user3"));
+        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.AboveExpectation, new Date("2017.03.11"), "comment", "user4"));
+        this.scores.push(new ClassScoreModel("T.4",ClassScoreEnum.BelowExpectation, new Date("2017.03.11"), "comment", "user5"));
     }
     getClassByID(ID?:string|null):ClassModel | null
     {

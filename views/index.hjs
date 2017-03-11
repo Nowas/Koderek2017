@@ -9,10 +9,15 @@
         crossorigin="anonymous">
     <link rel='stylesheet' href='/css/nprogress.css' />
     <link rel='stylesheet' href='/css/nowascore.css' />
+    <link rel='stylesheet' href='/css/coolTable.css' />
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='/js/nprogress.js'></script>
+    <script src='/js/retreiveDataFromServer.js'></script>
+    <script src='/js/collTable.js'></script>
+    <script src='/js/loadClasses.js'></script>
 </head>
 
 <body style="background-image: url('/images/NowaScoreBg.jpg')">
@@ -37,14 +42,31 @@
                 </thead>
             </table>
         </div>
-
-
-
-    </div>
-
-
-    <div>
-    </div>
+        <div class="tbl-content">
+            <table id="tableBody" cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    <tr>
+                        <td>AAC</td>
+                        <td>AUSTRALIAN COMPANY </td>
+                        <td>$1.38</td>
+                        <td>+2.01</td>
+                        <td>
+                            <a class="btn btn-info" href="#" data-class-id="1">
+                                <i class=""></i> {{#__}}Score{{/__}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+        </div>
 </body>
 
 </html>
+
+<script>
+    $(function () {
+        loadClasses('{{baseClassesUrl}}', '{{#__}}Score{{/__}}');
+    });
+
+</script>

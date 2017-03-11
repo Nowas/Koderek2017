@@ -53,10 +53,37 @@ export class KoderekDB
 
     }
 
-    getScoreCountForClass(ID?:string|null)
+    getScoreCountForClass(ID?:string|null):number
     {
-
+        var cnt:number = 0;
+        this.scores.forEach(element => {
+           if( element.classId == ID )
+              cnt++ 
+        });
+        return cnt;
     }
+
+    setScoreForClass(score:IClassScoreModel)
+    {
+        this.scores.push(score);
+    }
+
+    getScoreForClass(ID:string):[number,number,number]
+    {
+        var r0 = 0;
+        var r1 = 0;
+        var r2 = 0;
+        this.scores.forEach(element => {
+           if( element.classId == ID )
+              switch (element.classScore) {
+                  case ClassScoreEnum.BelowExpectation: r0++; break;
+                  case ClassScoreEnum.AsExpected:       r1++; break;
+                  case ClassScoreEnum.AboveExpectation: r2++; break;
+              }
+        });
+        return [r0,r1,r2];
+    }
+
     getClassesWithFilter(filter:IClassFilter):ClassModel[]
     {
         var classList:ClassModel[] = [];
@@ -67,5 +94,10 @@ export class KoderekDB
                classList.push(element); 
         });
         return classList;
+    }
+
+    insertClass(classInfo:ClassModel)
+    {
+        this.classes.push(classInfo);
     }
 }

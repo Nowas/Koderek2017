@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <title>NowaScore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel='stylesheet' href='/css/avgrund.css' />
+    <link rel='stylesheet' href='/css/nprogress.css' />
+    <link rel='stylesheet' href='/css/nowascore.css' />
+    <link rel='stylesheet' href='/css/coolTable.css' />
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/chart.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='/js/nprogress.js'></script>
+    <script src='/js/retreiveDataFromServer.js'></script>
+    <script src='/js/collTable.js'></script>
+    <script src='/js/loadClasses.js'></script>
+    <script src="/js/jquery.avgrund.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="/js/statistict.js"></script>
+</head>
+
+<body style="background-image: url('/images/bg.jpg')">
+    <div style="background-image: url('/images/NowaScoreBg.jpg')">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation ">
+            <div class="ns-blue">
+                <a class="navbar-brand" href="/">{{#__}}NowaScore{{/__}}</a>
+            </div>
+        </nav>
+        <div id="content">
+            <h1>{{#__}}Statistics for the class{{/__}}</h1>
+
+            <div id="doughnutChart" class="chart">
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+initStatistics('{{dataUrl}}', '{{#__}}Total{{/__}}');
+</script>

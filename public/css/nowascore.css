@@ -50,3 +50,12 @@ h1{
   margin: auto auto;  
   width:98%;
 }
+
+
+.newClassPopup{
+  background: #FFF;
+}
+
+.popupConteiner{
+  margin: 20px 20px;
+}

@@ -1,0 +1,10 @@
+node_modules/
+bin/**/*.js
+bin/**/*.js.map
+./app.js
+./app.js.map
+*.log
+dbconf.js
+wallaby.js
+*.swp
+.backup

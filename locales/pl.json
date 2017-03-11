@@ -5,5 +5,12 @@
 	"Teacher": "Prowadzący",
 	"Begin": "Początek",
 	"End": "Koniec",
-	"Score": "Ocena"
+	"Score": "Ocena",
+	"close": "close",
+	"BelowExpectation": "Poniżej oczekiwań",
+	"AsExpected": "Zgodnie z oczekiwaniem",
+	"AboveExpectation": "Powyżej oczekiwań",
+	"How do you score": "Jak oceniasz",
+	"class": "zajęcia",
+	"ClassCode": "ClassCode"
 }

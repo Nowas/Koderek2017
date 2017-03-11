@@ -2,6 +2,8 @@
 import * as express from 'express';
 import { Router } from "express";
 import { ClassModel } from "../services/Models/ClassModel";
+import { ClassService } from "../services/ClassService";
+import { ClassFilter } from "../services/Models/ClassFilter";
 var i18n = require('i18n');
 var fs = require('fs');
 
@@ -20,16 +22,8 @@ module Route {
                 });
 
             router.get('/classes',
-                function (req: any, res) {
-                    res.jsonp([
-                        new ClassModel(
-                            'classId',
-                            'className',
-                            new Date(),
-                            new Date(),
-                            'Nowas'
-                        )
-                    ]);
+                function (req: any, res) {  
+                    res.jsonp(new ClassService().GetClasses(new ClassFilter()));
                 });
 
             return router;

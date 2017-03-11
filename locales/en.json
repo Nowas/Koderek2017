@@ -5,5 +5,11 @@
 	"Teacher": "Teacher",
 	"Begin": "Begin",
 	"End": "End",
-	"Score": "Score"
+	"Score": "Score",
+	"close": "close",
+	"BelowExpectation": "Below expectation",
+	"AsExpected": "As expected",
+	"AboveExpectation": "Above expectation",
+	"How do you score": "How do you score",
+	"class": "class"
 }

@@ -7,66 +7,71 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+    <link rel='stylesheet' href='/css/avgrund.css' />
     <link rel='stylesheet' href='/css/nprogress.css' />
     <link rel='stylesheet' href='/css/nowascore.css' />
     <link rel='stylesheet' href='/css/coolTable.css' />
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='/js/nprogress.js'></script>
     <script src='/js/retreiveDataFromServer.js'></script>
     <script src='/js/collTable.js'></script>
     <script src='/js/loadClasses.js'></script>
+    <script src="/js/jquery.avgrund.js"></script>
 </head>
 
-<body style="background-image: url('/images/NowaScoreBg.jpg')">
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation ">
-        <div class="ns-blue">
-            <a class="navbar-brand" href="/">{{#__}}NowaScore{{/__}}</a>
-        </div>
-    </nav>
-    <div id="content">
-        <h1>{{#__}}Class list waiting for your score{{/__}}</h1>
+<body style="background-image: url('/images/bg.jpg')">
+    <div style="background-image: url('/images/NowaScoreBg.jpg')">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation ">
+            <div class="ns-blue">
+                <a class="navbar-brand" href="/">{{#__}}NowaScore{{/__}}</a>
+            </div>
+        </nav>
+        <div id="content">
+            <h1>{{#__}}Class list waiting for your score{{/__}}</h1>
 
-        <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <thead>
-                    <tr>
-                        <th>{{#__}}Class name{{/__}}</th>
-                        <th>{{#__}}Teacher{{/__}}</th>
-                        <th>{{#__}}Begin{{/__}}</th>
-                        <th>{{#__}}End{{/__}}</th>
-                        <th>{{#__}}Score{{/__}}</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>{{#__}}ClassCode{{/__}}</th>
+                            <th>{{#__}}Class name{{/__}}</th>
+                            <th>{{#__}}Teacher{{/__}}</th>
+                            <th>{{#__}}Begin{{/__}}</th>
+                            <th>{{#__}}End{{/__}}</th>
+                            <th>{{#__}}Score{{/__}}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table id="tableBody" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+            </div>
         </div>
-        <div class="tbl-content">
-            <table id="tableBody" cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>AAC</td>
-                        <td>AUSTRALIAN COMPANY </td>
-                        <td>$1.38</td>
-                        <td>+2.01</td>
-                        <td>
-                            <a class="btn btn-info" href="#" data-class-id="1">
-                                <i class=""></i> {{#__}}Score{{/__}}</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
-        </div>
+
 </body>
 
 </html>
 
 <script>
     $(function () {
-        loadClasses('{{baseClassesUrl}}', '{{#__}}Score{{/__}}');
+        loadClasses('{{baseClassesUrl}}', '{{#__}}Score{{/__}}', {
+            close: '{{#__}}close{{/__}}',
+            BelowExpectation: '{{#__}}BelowExpectation{{/__}}',
+            AsExpected: '{{#__}}AsExpected{{/__}}',
+            AboveExpectation: '{{#__}}AboveExpectation{{/__}}',
+            'How do you score' : '{{#__}}How do you score{{/__}}',
+            'class' : '{{#__}}class{{/__}}'
+        });
     });
 
 </script>

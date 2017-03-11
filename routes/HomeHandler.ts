@@ -26,6 +26,16 @@ module Route {
                     res.jsonp(new ClassService().GetClasses(new ClassFilter()));
                 });
 
+            router.get('/statistics',
+                function (req: any, res) {  
+                    var stat = new ClassService().GetScoreForClass(req.query.id);
+                    res.jsonp([
+                        {"category":"BeloveExpected","count":stat[0]},
+                        {"category":"AsExpected","count":stat[1]},
+                        {"category":"AboveExpected","count":stat[2]},
+                    ]);
+                });
+
             return router;
         }
     }

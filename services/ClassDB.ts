@@ -39,11 +39,14 @@ export class KoderekDB
     }
     getClassByID(ID?:string|null):ClassModel | null
     {
+        var found:ClassModel|null = null;
+
         if (ID == null) return null;
-        for (var i = 0; i < 5; i++)
-            if (this.classes[i].classID == ID)
-                return this.classes[i];
-        return null;
+        this.classes.forEach(element => {
+            if (element.classID == ID)
+                found = element;
+        });
+        return found;
     }
     getClassCount(ID?:string|null)
     {

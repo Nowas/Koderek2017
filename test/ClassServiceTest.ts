@@ -12,7 +12,7 @@ describe('ClassService tests', function () {
 
     it('get class info test', function(done){
         var srv = new ClassService();
-        var cl = srv.GetClass("id1");
+        var cl = srv.GetClass("T.1");
         assert(cl!=null, 'got class');
         done();
     })
@@ -25,7 +25,7 @@ describe('ClassService tests', function () {
     })
     it('get no class info test for wrong id', function(done){
         var srv = new ClassService();
-        var cl = srv.GetClass("id000");
+        var cl = srv.GetClass("T.000");
         assert(cl==null, 'got class');
         done();
     })
@@ -43,7 +43,7 @@ describe('ClassService tests', function () {
     })
     it('get classes score', function(done){
         var srv = new ClassService();
-        var cl = srv.GetScoreForClass("id1");
+        var cl = srv.GetScoreForClass("T.1");
         assert(cl[0] == 1, 'got score Below');
         assert(cl[1] == 2, 'got score AsExpected');
         assert(cl[2] == 2, 'got score Above');
@@ -51,14 +51,14 @@ describe('ClassService tests', function () {
     })
     it('get classes score insert', function(done){
         var srv = new ClassService();
-        var cl = srv.GetScoreForClass("id3");
+        var cl = srv.GetScoreForClass("T.3");
         assert(cl[0] == 0, 'got score Below');
         assert(cl[1] == 0, 'got score AsExpected');
         assert(cl[2] == 0, 'got score Above');
 
-        srv.SetScore("id3", ClassScoreEnum.AsExpected);
+        srv.SetScore("T.3", ClassScoreEnum.AsExpected);
 
-        var cl2 = srv.GetScoreForClass("id3");
+        var cl2 = srv.GetScoreForClass("T.3");
         assert(cl2[0] == 0, 'got score Below');
         assert(cl2[1] == 1, 'got score AsExpected');
         assert(cl2[2] == 0, 'got score Above');
@@ -66,31 +66,31 @@ describe('ClassService tests', function () {
     })
     it('add class test', function(done){
         var srv = new ClassService();
-        var cl = srv.GetClass("id99");
+        var cl = srv.GetClass("T.99");
         assert(!cl , 'got class, but shouldnt');
-        srv.AddClass("id99", "name99", new Date("2017.03.09"), new Date("2017.03.10"), "teacher99");
-        var cl2 = srv.GetClass("id99");
+        srv.AddClass("T.99", "name99", new Date("2017.03.09"), new Date("2017.03.10"), "teacher99");
+        var cl2 = srv.GetClass("T.99");
         assert(cl2 , 'got no class');
         done();
     })
     it('new class multiple score insert', function(done){
         var srv = new ClassService();
 
-        srv.AddClass("id88", "name88", new Date("2017.03.09"), new Date("2017.03.10"), "teacher88");
+        srv.AddClass("T.88", "name88", new Date("2017.03.09"), new Date("2017.03.10"), "teacher88");
         
-        var cl = srv.GetScoreForClass("id88");
+        var cl = srv.GetScoreForClass("T.88");
         assert(cl[0] == 0, 'got score Below');
         assert(cl[1] == 0, 'got score AsExpected');
         assert(cl[2] == 0, 'got score Above');
 
-        srv.SetScore("id88", ClassScoreEnum.AsExpected);
-        srv.SetScore("id88", ClassScoreEnum.AsExpected);
-        srv.SetScore("id88", ClassScoreEnum.AsExpected);
-        srv.SetScore("id88", ClassScoreEnum.AboveExpectation);
-        srv.SetScore("id88", ClassScoreEnum.AboveExpectation);
-        srv.SetScore("id88", ClassScoreEnum.BelowExpectation);
+        srv.SetScore("T.88", ClassScoreEnum.AsExpected);
+        srv.SetScore("T.88", ClassScoreEnum.AsExpected);
+        srv.SetScore("T.88", ClassScoreEnum.AsExpected);
+        srv.SetScore("T.88", ClassScoreEnum.AboveExpectation);
+        srv.SetScore("T.88", ClassScoreEnum.AboveExpectation);
+        srv.SetScore("T.88", ClassScoreEnum.BelowExpectation);
 
-        var cl2 = srv.GetScoreForClass("id88");
+        var cl2 = srv.GetScoreForClass("T.88");
         assert(cl2[0] == 1, 'got score Below');
         assert(cl2[1] == 3, 'got score AsExpected');
         assert(cl2[2] == 2, 'got score Above');
@@ -99,7 +99,7 @@ describe('ClassService tests', function () {
     it('nonexistent class score get', function(done){
         var srv = new ClassService();
 
-        var cl = srv.GetScoreForClass("id88");
+        var cl = srv.GetScoreForClass("T.88");
         assert(cl[0] == 0, 'got score Below');
         assert(cl[1] == 0, 'got score AsExpected');
         assert(cl[2] == 0, 'got score Above');
@@ -108,9 +108,9 @@ describe('ClassService tests', function () {
     it('nonexistent class score insert', function(done){
         var srv = new ClassService();
 
-        srv.SetScore("id88", ClassScoreEnum.AsExpected);
+        srv.SetScore("T.88", ClassScoreEnum.AsExpected);
 
-        var cl = srv.GetScoreForClass("id88");
+        var cl = srv.GetScoreForClass("T.88");
         assert(cl[0] == 0, 'got score Below');
         assert(cl[1] == 0, 'got score AsExpected');
         assert(cl[2] == 0, 'got score Above');
